@@ -180,7 +180,4 @@ ROBOTS() {
     chikachika
 }
 
-WE
-ARE
-THE
-ROBOTS
+WE; ARE; THE; ROBOTS
