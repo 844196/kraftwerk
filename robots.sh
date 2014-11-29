@@ -2,7 +2,7 @@
 
 R="$(tput smso)$(tput setaf 1)  $(tput rmso)"
 W="$(tput smso)$(tput setaf 7)  $(tput rmso)"
-if `which sleepenh >/dev/null 2>&1`; then
+if $(which sleepenh >/dev/null 2>&1); then
     SLEEP='sleepenh'
 else
     SLEEP='sleep'
