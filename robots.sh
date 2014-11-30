@@ -16,10 +16,10 @@ LINES=$(tput lines)
 _margin_height() {
     HEIGHT=$(expr \( $LINES - 13 \) / 2)
     MARGIN_H=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
-}
+}; _margin_height
 
 function WE() {
-_margin_width 28; _margin_height
+_margin_width 28
 echo "
 ${MARGIN_H}
 ${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W$W
@@ -39,7 +39,7 @@ $SLEEP 0.6; clear
 }
 
 function ARE() {
-_margin_width 46; _margin_height
+_margin_width 46
 echo "
 ${MARGIN_H}
 ${MARGIN_W}    $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
@@ -59,7 +59,7 @@ $SLEEP 0.2; clear
 }
 
 function THE() {
-_margin_width 44; _margin_height
+_margin_width 44
 echo "
 ${MARGIN_H}
 ${MARGIN_W}$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
@@ -79,7 +79,7 @@ $SLEEP 0.2; clear
 }
 
 function chikachika() {
-_margin_width 81; _margin_height
+_margin_width 81
 ROBOTS="
 ${MARGIN_H}
 ${MARGIN_W}$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
