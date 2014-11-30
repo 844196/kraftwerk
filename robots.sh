@@ -125,8 +125,13 @@ ROBOTS() {
     fi
 }
 
+trap 'tput cnorm; exit 1' SIGINT
+tput civis
+
 for i in $(seq 1 3); do
     WE; ARE; THE; ROBOTS;
 done
 LAST=1
 WE; ARE; THE; ROBOTS;
+
+tput cnorm
