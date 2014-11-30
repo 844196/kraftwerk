@@ -21,7 +21,7 @@ echo "
                             $W$W$W  $W$W$W  $W$W
                             $W$W      $W$W  $W$W$W$W$W$W$W
                             $W          $W  $W$W$W$W$W$W$W"
-$SLEEP 0.5; clear
+$SLEEP 0.6; clear
 }
 
 function ARE() {
