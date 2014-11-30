@@ -198,6 +198,7 @@ we_re_full; ${SLEEP} 0.58 > /dev/null; clear
 of; ${SLEEP} 0.34 > /dev/null; clear
 print_energy
 
+${SLEEP} 0.36 > /dev/null
 tput cnorm # Macだと "tput vs" かも
 
 exit 0;
