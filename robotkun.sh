@@ -2,7 +2,6 @@
 
 clear
 
-LAST=0
 if $(which sleepenh >/dev/null 2>&1); then SLEEP='sleepenh'; else SLEEP='sleep'; fi
 
 COLS=$(tput cols)
