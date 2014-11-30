@@ -8,14 +8,18 @@ W="$(tput smso)$(tput setaf 7)  $(tput sgr 0)$(tput rmso)"
 if $(which sleepenh >/dev/null 2>&1); then SLEEP='sleepenh'; else SLEEP='sleep'; fi
 
 COLS=$(tput cols)
-
+margin_width() {
+    WIDTH=$(expr \( $COLS - $1 \) / 2)
+    NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+}
 LINES=$(tput lines)
-HEIGHT=$(expr \( $LINES - 13 \) / 2)
-PADDING=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
+margin_height() {
+    HEIGHT=$(expr \( $LINES - 13 \) / 2)
+    PADDING=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
+}
 
 function WE() {
-WIDTH=$(expr \( $COLS - 28 \) / 2)
-NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+margin_width 28; margin_height
 echo "
 $PADDING
 $NBSP$W$W      $W$W  $W$W$W$W$W$W$W
@@ -35,8 +39,7 @@ $SLEEP 0.6; clear
 }
 
 function ARE() {
-WIDTH=$(expr \( $COLS - 46 \) / 2)
-NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+margin_width 46; margin_height
 echo "
 $PADDING
 $NBSP    $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
@@ -56,8 +59,7 @@ $SLEEP 0.2; clear
 }
 
 function THE() {
-WIDTH=$(expr \( $COLS - 44 \) / 2)
-NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+margin_width 44; margin_height
 echo "
 $PADDING
 $NBSP$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
@@ -77,8 +79,7 @@ $SLEEP 0.2; clear
 }
 
 function chikachika() {
-WIDTH=$(expr \( $COLS - 81 \) / 2)
-NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+margin_width 81; margin_height
 ROBOTS="
 $PADDING
 $NBSP$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
