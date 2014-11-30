@@ -99,10 +99,11 @@ function print_battery() {
 tput civis # Macだと "tput vi" かも
 
 clear
-were; ${SLEEP} 0.12 > /dev/null; clear
-charging; ${SLEEP}  0.78 > /dev/null; clear
-our; ${SLEEP} 0.23 > /dev/null; clear
+were; ${SLEEP} 0.1 > /dev/null; clear
+charging; ${SLEEP}  0.58 > /dev/null; clear
+our; ${SLEEP} 0.34 > /dev/null; clear
 print_battery
+
 tput cnorm # Macだと "tput vs" かも
 
 exit 0;
