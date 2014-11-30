@@ -8,92 +8,92 @@ W="$(tput smso)$(tput setaf 7)  $(tput sgr 0)$(tput rmso)"
 if $(which sleepenh >/dev/null 2>&1); then SLEEP='sleepenh'; else SLEEP='sleep'; fi
 
 COLS=$(tput cols)
-margin_width() {
+_margin_width() {
     WIDTH=$(expr \( $COLS - $1 \) / 2)
-    NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
+    MARGIN_W=$(for i in `seq 1 $WIDTH`; do printf " "; done)
 }
 LINES=$(tput lines)
-margin_height() {
+_margin_height() {
     HEIGHT=$(expr \( $LINES - 13 \) / 2)
-    PADDING=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
+    MARGIN_H=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
 }
 
 function WE() {
-margin_width 28; margin_height
+_margin_width 28; _margin_height
 echo "
-$PADDING
-$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP$W$W      $W$W  $W$W
-$NBSP$W$W      $W$W  $W$W
-$NBSP$W$W      $W$W  $W$W$W$W$W$W
-$NBSP$W$W  $W  $W$W  $W$W$W$W$W$W
-$NBSP$W$W  $W  $W$W  $W$W
-$NBSP$W$W$W$W$W$W$W  $W$W
-$NBSP$W$W$W$W$W$W$W  $W$W
-$NBSP$W$W$W  $W$W$W  $W$W
-$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP$W          $W  $W$W$W$W$W$W$W
+${MARGIN_H}
+${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}$W$W      $W$W  $W$W
+${MARGIN_W}$W$W      $W$W  $W$W
+${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W
+${MARGIN_W}$W$W  $W  $W$W  $W$W$W$W$W$W
+${MARGIN_W}$W$W  $W  $W$W  $W$W
+${MARGIN_W}$W$W$W$W$W$W$W  $W$W
+${MARGIN_W}$W$W$W$W$W$W$W  $W$W
+${MARGIN_W}$W$W$W  $W$W$W  $W$W
+${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}$W          $W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.6; clear
 }
 
 function ARE() {
-margin_width 46; margin_height
+_margin_width 46; _margin_height
 echo "
-$PADDING
-$NBSP    $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
-$NBSP  $W$W$W$W$W    $W$W$W$W$W$W    $W$W$W$W$W$W$W
-$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
-$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
-$NBSP$W$W      $W$W  $W$W    $W$W    $W$W$W$W$W$W
-$NBSP$W$W$W$W$W$W$W  $W$W$W$W$W$W    $W$W$W$W$W$W
-$NBSP$W$W$W$W$W$W$W  $W$W$W$W$W      $W$W
-$NBSP$W$W      $W$W  $W$W  $W$W      $W$W
-$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
-$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
-$NBSP$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_H}
+${MARGIN_W}    $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
+${MARGIN_W}  $W$W$W$W$W    $W$W$W$W$W$W    $W$W$W$W$W$W$W
+${MARGIN_W}$W$W      $W$W  $W$W    $W$W    $W$W
+${MARGIN_W}$W$W      $W$W  $W$W    $W$W    $W$W
+${MARGIN_W}$W$W      $W$W  $W$W    $W$W    $W$W$W$W$W$W
+${MARGIN_W}$W$W$W$W$W$W$W  $W$W$W$W$W$W    $W$W$W$W$W$W
+${MARGIN_W}$W$W$W$W$W$W$W  $W$W$W$W$W      $W$W
+${MARGIN_W}$W$W      $W$W  $W$W  $W$W      $W$W
+${MARGIN_W}$W$W      $W$W  $W$W    $W$W    $W$W
+${MARGIN_W}$W$W      $W$W  $W$W    $W$W    $W$W
+${MARGIN_W}$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.2; clear
 }
 
 function THE() {
-margin_width 44; margin_height
+_margin_width 44; _margin_height
 echo "
-$PADDING
-$NBSP$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W
-$NBSP    $W$W      $W$W$W$W$W$W$W  $W$W$W$W$W$W
-$NBSP    $W$W      $W$W$W$W$W$W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
-$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_H}
+${MARGIN_W}$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W$W$W$W$W
+${MARGIN_W}    $W$W      $W$W$W$W$W$W$W  $W$W$W$W$W$W
+${MARGIN_W}    $W$W      $W$W$W$W$W$W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
+${MARGIN_W}    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.2; clear
 }
 
 function chikachika() {
-margin_width 81; margin_height
+_margin_width 81; _margin_height
 ROBOTS="
-$PADDING
-$NBSP$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
-$NBSP$A$A$A$A$A$A   $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D $E$E$E$E$E$E $F$F$F$F$F$F
-$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
-$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
-$NBSP$A$A    $A$A   $B$B    $B$B  $C$C$C$C$C$C  $D$D    $D$D     $E$E     $F$F$F      
-$NBSP$A$A$A$A$A$A   $B$B    $B$B  $C$C$C$C$C    $D$D    $D$D     $E$E       $F$F$F    
-$NBSP$A$A$A$A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E         $F$F$F  
-$NBSP$A$A  $A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E           $F$F$F
-$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
-$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
-$NBSP$A$A      $A$A $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D     $E$E     $F$F$F$F$F$F
-$NBSP$A$A      $A$A   $B$B$B$B    $C$C$C$C$C      $D$D$D$D       $E$E     $F$F$F$F$F  
+${MARGIN_H}
+${MARGIN_W}$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
+${MARGIN_W}$A$A$A$A$A$A   $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D $E$E$E$E$E$E $F$F$F$F$F$F
+${MARGIN_W}$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
+${MARGIN_W}$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
+${MARGIN_W}$A$A    $A$A   $B$B    $B$B  $C$C$C$C$C$C  $D$D    $D$D     $E$E     $F$F$F      
+${MARGIN_W}$A$A$A$A$A$A   $B$B    $B$B  $C$C$C$C$C    $D$D    $D$D     $E$E       $F$F$F    
+${MARGIN_W}$A$A$A$A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E         $F$F$F  
+${MARGIN_W}$A$A  $A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E           $F$F$F
+${MARGIN_W}$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
+${MARGIN_W}$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
+${MARGIN_W}$A$A      $A$A $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D     $E$E     $F$F$F$F$F$F
+${MARGIN_W}$A$A      $A$A   $B$B$B$B    $C$C$C$C$C      $D$D$D$D       $E$E     $F$F$F$F$F  
 "
 echo "$ROBOTS"
 }
