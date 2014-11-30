@@ -7,74 +7,92 @@ R="$(tput smso)$(tput setaf 1)  $(tput sgr 0)$(tput rmso)"
 W="$(tput smso)$(tput setaf 7)  $(tput sgr 0)$(tput rmso)"
 if $(which sleepenh >/dev/null 2>&1); then SLEEP='sleepenh'; else SLEEP='sleep'; fi
 
+COLS=$(tput cols)
+
+LINES=$(tput lines)
+HEIGHT=$(expr \( $LINES - 13 \) / 2)
+PADDING=$(for i in `seq 1 $HEIGHT`; do echo " "; done)
+
 function WE() {
+WIDTH=$(expr \( $COLS - 28 \) / 2)
+NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
 echo "
-                            $W$W      $W$W  $W$W$W$W$W$W$W
-                            $W$W      $W$W  $W$W$W$W$W$W$W
-                            $W$W      $W$W  $W$W
-                            $W$W      $W$W  $W$W
-                            $W$W      $W$W  $W$W$W$W$W$W
-                            $W$W  $W  $W$W  $W$W$W$W$W$W
-                            $W$W  $W  $W$W  $W$W
-                            $W$W$W$W$W$W$W  $W$W
-                            $W$W$W$W$W$W$W  $W$W
-                            $W$W$W  $W$W$W  $W$W
-                            $W$W      $W$W  $W$W$W$W$W$W$W
-                            $W          $W  $W$W$W$W$W$W$W
+$PADDING
+$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP$W$W      $W$W  $W$W
+$NBSP$W$W      $W$W  $W$W
+$NBSP$W$W      $W$W  $W$W$W$W$W$W
+$NBSP$W$W  $W  $W$W  $W$W$W$W$W$W
+$NBSP$W$W  $W  $W$W  $W$W
+$NBSP$W$W$W$W$W$W$W  $W$W
+$NBSP$W$W$W$W$W$W$W  $W$W
+$NBSP$W$W$W  $W$W$W  $W$W
+$NBSP$W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP$W          $W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.6; clear
 }
 
 function ARE() {
+WIDTH=$(expr \( $COLS - 46 \) / 2)
+NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
 echo "
-                        $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
-                      $W$W$W$W$W    $W$W$W$W$W$W    $W$W$W$W$W$W$W
-                    $W$W      $W$W  $W$W    $W$W    $W$W
-                    $W$W      $W$W  $W$W    $W$W    $W$W
-                    $W$W      $W$W  $W$W    $W$W    $W$W$W$W$W$W
-                    $W$W$W$W$W$W$W  $W$W$W$W$W$W    $W$W$W$W$W$W
-                    $W$W$W$W$W$W$W  $W$W$W$W$W      $W$W
-                    $W$W      $W$W  $W$W  $W$W      $W$W
-                    $W$W      $W$W  $W$W    $W$W    $W$W
-                    $W$W      $W$W  $W$W    $W$W    $W$W
-                    $W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-                    $W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+$PADDING
+$NBSP    $W$W$W      $W$W$W$W$W      $W$W$W$W$W$W$W
+$NBSP  $W$W$W$W$W    $W$W$W$W$W$W    $W$W$W$W$W$W$W
+$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
+$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
+$NBSP$W$W      $W$W  $W$W    $W$W    $W$W$W$W$W$W
+$NBSP$W$W$W$W$W$W$W  $W$W$W$W$W$W    $W$W$W$W$W$W
+$NBSP$W$W$W$W$W$W$W  $W$W$W$W$W      $W$W
+$NBSP$W$W      $W$W  $W$W  $W$W      $W$W
+$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
+$NBSP$W$W      $W$W  $W$W    $W$W    $W$W
+$NBSP$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP$W$W      $W$W  $W$W      $W$W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.2; clear
 }
 
 function THE() {
+WIDTH=$(expr \( $COLS - 44 \) / 2)
+NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
 echo "
-                     $W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-                     $W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
-                         $W$W      $W$W      $W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W$W$W$W$W
-                         $W$W      $W$W$W$W$W$W$W  $W$W$W$W$W$W
-                         $W$W      $W$W$W$W$W$W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W
-                         $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
-                         $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
+$PADDING
+$NBSP$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP$W$W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W
+$NBSP    $W$W      $W$W$W$W$W$W$W  $W$W$W$W$W$W
+$NBSP    $W$W      $W$W$W$W$W$W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
+$NBSP    $W$W      $W$W      $W$W  $W$W$W$W$W$W$W
 "
 $SLEEP 0.2; clear
 }
 
 function chikachika() {
+WIDTH=$(expr \( $COLS - 81 \) / 2)
+NBSP=$(for i in `seq 1 $WIDTH`; do printf " "; done)
 ROBOTS="
-$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
-$A$A$A$A$A$A   $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D $E$E$E$E$E$E $F$F$F$F$F$F
-$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
-$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
-$A$A    $A$A   $B$B    $B$B  $C$C$C$C$C$C  $D$D    $D$D     $E$E     $F$F$F      
-$A$A$A$A$A$A   $B$B    $B$B  $C$C$C$C$C    $D$D    $D$D     $E$E       $F$F$F    
-$A$A$A$A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E         $F$F$F  
-$A$A  $A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E           $F$F$F
-$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
-$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
-$A$A      $A$A $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D     $E$E     $F$F$F$F$F$F
-$A$A      $A$A   $B$B$B$B    $C$C$C$C$C      $D$D$D$D       $E$E     $F$F$F$F$F  
+$PADDING
+$NBSP$A$A$A$A$A       $B$B$B$B    $C$C$C$C$C      $D$D$D$D   $E$E$E$E$E$E   $F$F$F$F$F
+$NBSP$A$A$A$A$A$A   $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D $E$E$E$E$E$E $F$F$F$F$F$F
+$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
+$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E     $F$F        
+$NBSP$A$A    $A$A   $B$B    $B$B  $C$C$C$C$C$C  $D$D    $D$D     $E$E     $F$F$F      
+$NBSP$A$A$A$A$A$A   $B$B    $B$B  $C$C$C$C$C    $D$D    $D$D     $E$E       $F$F$F    
+$NBSP$A$A$A$A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E         $F$F$F  
+$NBSP$A$A  $A$A     $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E           $F$F$F
+$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
+$NBSP$A$A    $A$A   $B$B    $B$B  $C$C    $C$C  $D$D    $D$D     $E$E             $F$F
+$NBSP$A$A      $A$A $B$B$B$B$B$B  $C$C$C$C$C$C  $D$D$D$D$D$D     $E$E     $F$F$F$F$F$F
+$NBSP$A$A      $A$A   $B$B$B$B    $C$C$C$C$C      $D$D$D$D       $E$E     $F$F$F$F$F  
 "
 echo "$ROBOTS"
 }
