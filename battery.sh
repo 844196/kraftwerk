@@ -96,6 +96,7 @@ function print_battery() {
 	return;
 }
 
+trap 'clear; tput cnorm;exit 1' SIGINT
 tput civis # Macだと "tput vi" かも
 
 clear
@@ -103,7 +104,6 @@ were; ${SLEEP} 0.1 > /dev/null; clear
 charging; ${SLEEP}  0.58 > /dev/null; clear
 our; ${SLEEP} 0.34 > /dev/null; clear
 print_battery
-
 tput cnorm # Macだと "tput vs" かも
 
 exit 0;
