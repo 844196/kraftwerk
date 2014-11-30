@@ -1,6 +1,7 @@
 #!/bin/bash
 
 LAST=0
+
 R="$(tput smso)$(tput setaf 1)  $(tput rmso)"
 W="$(tput smso)$(tput setaf 7)  $(tput rmso)"
 if $(which sleepenh >/dev/null 2>&1); then
@@ -305,8 +306,14 @@ ROBOTS() {
     done
 }
 
+trap 'clear; tput cnorm;exit 1' SIGINT
+tput civis
+
 for ((j = 0; j < 3; j++)); do
     WE; ARE; THE; ROBOTS;
 done
 LAST=1
 WE; ARE; THE; ROBOTS;
+
+tput cnorm
+exit 0;
