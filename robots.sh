@@ -20,7 +20,8 @@ echo "
                             $W$W$W$W$W$W$W  $W$W
                             $W$W$W  $W$W$W  $W$W
                             $W$W      $W$W  $W$W$W$W$W$W$W
-                            $W          $W  $W$W$W$W$W$W$W"
+                            $W          $W  $W$W$W$W$W$W$W
+"
 $SLEEP 0.6; clear
 }
 
