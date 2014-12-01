@@ -153,7 +153,7 @@ ${MARGIN_W}$W$W      $W$W  $W$W$W$W$W$W$W  $W$W      $W$W  $W$W      $W$W   $W$W
 
 function print_automatik() {
 	automatik
-	${SLEEP} 0.8 > /dev/null
+	${SLEEP} 1.024 > /dev/null
 	clear
 	for ((i = 0; i < 4; i++)); do
 		automatik
@@ -172,7 +172,7 @@ function print_automatik() {
 
 function print_mekanik() {
 	mekanik
-	${SLEEP} 0.8 > /dev/null
+	${SLEEP} 0.96 > /dev/null
 	clear
 	for ((i = 0; i < 4; i++)); do
 		mekanik
@@ -190,17 +190,17 @@ function print_mekanik() {
 }
 
 clear
-trap 'clear; tput cnorm; exit1' SIGINT
+trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
 _margin_height
 
-were; ${SLEEP} 0.1 > /dev/null; clear
-functioning; ${SLEEP} 0.58 > /dev/null; clear
+were; ${SLEEP} 0.12 > /dev/null; clear
+functioning; ${SLEEP} 0.78 > /dev/null; clear
 print_automatik
 clear
-${SLEEP} 0.6 > /dev/null
+${SLEEP} 0.38 > /dev/null
 
-and_we_are; ${SLEEP} 0.1 > /dev/null; clear
+and_we_are; ${SLEEP} 0.36 > /dev/null; clear
 dancing; ${SLEEP} 0.58 > /dev/null; clear
 print_mekanik
 clear
