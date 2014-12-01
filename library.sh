@@ -19,11 +19,11 @@ function _CursorInvisible() {
 function _Sleep() {
     local t="${@}"
     if $(which sleepenh >/dev/null 2>&1); then
-        readonly SLEEP='sleepenh'
+        local sleep='sleepenh'
     else
-        readonly SLEEP='sleep'
+        local sleep='sleep'
     fi
-    ${SLEEP} ${t} >/dev/null
+    ${sleep} ${t} >/dev/null
 }
 
 function _MarginHeight() {
