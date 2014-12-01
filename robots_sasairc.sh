@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+#   Author:
+#       sasairc (@sasairc_2)
+#
+#   License
+#       MIT
+#
 
 LAST=0
 

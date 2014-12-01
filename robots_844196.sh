@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+#   Author:
+#       844196 (@84____)
+#
+#   License
+#       MIT
+#
 
 clear
 
