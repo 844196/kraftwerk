@@ -11,7 +11,7 @@
 
 
 function _CursorInvisible() {
-    trap "tput cnorm; exit 0" EXIT
+    trap "tput cnorm;" EXIT
     trap "tput cnorm; exit 1" SIGINT
     tput civis
 }
