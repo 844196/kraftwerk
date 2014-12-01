@@ -107,27 +107,27 @@ echo "$ROBOTS"
 
 ROBOTS() {
     for i in $(seq 1 2); do
-        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$W"; chikachika; $SLEEP 0.14; clear;
+        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$W"; chikachika; $SLEEP 0.13; clear;
     done
     if [ "$LAST" = '1' ]; then
-        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
+        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
         A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.07; clear;
     else
-        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.14; clear;
-        A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$W"; chikachika; $SLEEP 0.14; clear;
+        A="$W"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$W"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$W"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$W"; E="$R"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$R"; E="$W"; F="$R"; chikachika; $SLEEP 0.13; clear;
+        A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$W"; chikachika; $SLEEP 0.13; clear;
         A="$R"; B="$R"; C="$R"; D="$R"; E="$R"; F="$R"; chikachika; $SLEEP 0.07; clear;
     fi
 }
