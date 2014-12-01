@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+#   Author:
+#       sasairc (@sasairc_2)
+#
+#   License
+#       MIT
+#
 
 R="\033[0;41m  \033[m"
 W="\033[0;47m  \033[m"

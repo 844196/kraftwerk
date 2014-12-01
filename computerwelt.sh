@@ -1,4 +1,11 @@
 #!/bin/bash
+#
+#   Author:
+#       sasairc (@sasairc_2)
+#
+#   License
+#       MIT
+#
 
 N="`tput smso`  `tput rmso`"
 #SLEEP='sleepenh 0.1'
