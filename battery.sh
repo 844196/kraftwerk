@@ -9,145 +9,182 @@
 
 R="\033[0;41m  \033[m"
 W="\033[0;47m  \033[m"
+COLS=$(tput cols)
+LINES=$(tput lines)
+
 if $(which sleepenh >/dev/null 2>&1); then
     SLEEP='sleepenh'
 else
     SLEEP='sleep'
 fi
 
+function _margin_width() {
+	WIDTH=$(expr \( $COLS - $1 \) / 2)
+	MARGIN_W=$(
+			for i in `seq 1 $WIDTH`; do
+				echo -n " "
+			done
+		)
+}
+
+function _margin_height() {
+	HEIGHT=$(expr \( $LINES - 13 \) / 2)
+	MARGIN_H=$(
+			for i in `seq 1 $HEIGHT`; do
+				echo " "
+			done
+		)
+}
+
 function were() {
+_margin_width 78
 echo -e "
-                                      $R$R      $R$R   $R$R$R$R$R$R$E  $R$R           $R$R$R$R$R      $R$R$R$R$R$R$R
-                                      $R$R      $R$R   $R$R$R$R$R$R$R  $R$R           $R$R$R$R$R$R    $R$R$R$R$R$R$R
-                                      $R$R      $R$R   $R$R            $R$R           $R$R    $R$R    $R$R
-                                      $R$R      $R$R   $R$R            $R$R           $R$R    $R$R    $R$R
-                                      $R$R      $R$R   $R$R$R$R$R$R    $R$R           $R$R    $R$R    $R$R$R$R$R$R
-                                      $R$R  $R  $R$R   $R$R$R$R$R$R    $R$R           $R$R$R$R$R$R    $R$R$R$R$R$R
-                                      $R$R  $R  $R$R   $R$R                           $R$R$R$R        $R$R
-                                      $R$R$R$R$R$R$R   $R$R                           $R$R  $R$R      $R$R
-                                      $R$R$R$R$R$R$R   $R$R                           $R$R    $R$R    $R$R
-                                      $R$R$R  $R$R$R   $R$R                           $R$R    $R$R    $R$R
-                                      $R$R      $R$R   $R$R$R$R$R$R$R                 $R$R      $R$R  $R$R$R$R$R$R$R
-                                      $R          $R   $R$R$R$R$R$R$R                 $R$R      $R$R  $R$R$R$R$R$R$R
+${MARGIN_H}
+${MARGIN_W}$R$R      $R$R   $R$R$R$R$R$R$E  $R$R           $R$R$R$R$R      $R$R$R$R$R$R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R$R$R$R$R  $R$R           $R$R$R$R$R$R    $R$R$R$R$R$R$R
+${MARGIN_W}$R$R      $R$R   $R$R            $R$R           $R$R    $R$R    $R$R
+${MARGIN_W}$R$R      $R$R   $R$R            $R$R           $R$R    $R$R    $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R$R$R$R    $R$R           $R$R    $R$R    $R$R$R$R$R$R
+${MARGIN_W}$R$R  $R  $R$R   $R$R$R$R$R$R    $R$R           $R$R$R$R$R$R    $R$R$R$R$R$R
+${MARGIN_W}$R$R  $R  $R$R   $R$R                           $R$R$R$R        $R$R
+${MARGIN_W}$R$R$R$R$R$R$R   $R$R                           $R$R  $R$R      $R$R
+${MARGIN_W}$R$R$R$R$R$R$R   $R$R                           $R$R    $R$R    $R$R
+${MARGIN_W}$R$R$R  $R$R$R   $R$R                           $R$R    $R$R    $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R$R$R$R$R                 $R$R      $R$R  $R$R$R$R$R$R$R
+${MARGIN_W}$R          $R   $R$R$R$R$R$R$R                 $R$R      $R$R  $R$R$R$R$R$R$R
 "
 }
 
 function charging() {
+_margin_width 140
 echo -e "
-                $R$R$R$R$R    $R$R    $R$R        $R$R$R      $R$R$R$R$R        $R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R     $R$R$R$R$R$R
-              $R$R$R$R$R$R$R  $R$R    $R$R      $R$R$R$R$R    $R$R$R$R$R$R    $R$R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
-              $R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R                 $R$R        $R$R$R  $R$R   $R$R
-              $R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R  $R$R$R$R       $R$R        $R$R$R  $R$R   $R$R  $R$R$R$R
-              $R$R            $R$R$R$R$R$R    $R$R      $R$R  $R$R    $R$R    $R$R  $R$R$R$R       $R$R        $R$R$R  $R$R   $R$R  $R$R$R$R
-              $R$R            $R$R$R$R$R$R    $R$R      $R$R  $R$R$R$R$R$R    $R$R      $R$R       $R$R        $R$R$R$R$R$R   $R$R      $R$R
-              $R$R            $R$R    $R$R    $R$R$R$R$R$R$R  $R$R$R$R        $R$R      $R$R       $R$R        $R$R$R$R$R$R   $R$R      $R$R
-              $R$R            $R$R    $R$R    $R$R$R$R$R$R$R  $R$R  $R$R      $R$R      $R$R       $R$R        $R$R  $R$R$R   $R$R      $R$R
-              $R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R      $R$R       $R$R        $R$R  $R$R$R   $R$R      $R$R
-              $R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R      $R$R       $R$R        $R$R    $R$R   $R$R      $R$R
-              $R$R$R$R$R$R$R  $R$R    $R$R    $R$R      $R$R  $R$R      $R$R  $R$R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R             
-                $R$R$R$R$R    $R$R    $R$R    $R$R      $R$R  $R$R      $R$R    $R$R$R$R$R     $R$R$R$R$R$R    $R$R    $R$R     $R$R$R$R$R
+${MARGIN_H}
+${MARGIN_W}  $R$R$R$R$R    $R$R    $R$R        $R$R$R      $R$R$R$R$R        $R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R     $R$R$R$R$R$R
+${MARGIN_W}$R$R$R$R$R$R$R  $R$R    $R$R      $R$R$R$R$R    $R$R$R$R$R$R    $R$R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
+${MARGIN_W}$R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R                 $R$R        $R$R$R  $R$R   $R$R
+${MARGIN_W}$R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R  $R$R$R$R       $R$R        $R$R$R  $R$R   $R$R  $R$R$R$R
+${MARGIN_W}$R$R            $R$R$R$R$R$R    $R$R      $R$R  $R$R    $R$R    $R$R  $R$R$R$R       $R$R        $R$R$R  $R$R   $R$R  $R$R$R$R
+${MARGIN_W}$R$R            $R$R$R$R$R$R    $R$R      $R$R  $R$R$R$R$R$R    $R$R      $R$R       $R$R        $R$R$R$R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R            $R$R    $R$R    $R$R$R$R$R$R$R  $R$R$R$R        $R$R      $R$R       $R$R        $R$R$R$R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R            $R$R    $R$R    $R$R$R$R$R$R$R  $R$R  $R$R      $R$R      $R$R       $R$R        $R$R  $R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R      $R$R       $R$R        $R$R  $R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R  $R$R    $R$R    $R$R      $R$R  $R$R    $R$R    $R$R      $R$R       $R$R        $R$R    $R$R   $R$R      $R$R
+${MARGIN_W}$R$R$R$R$R$R$R  $R$R    $R$R    $R$R      $R$R  $R$R      $R$R  $R$R$R$R$R$R$R   $R$R$R$R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
+${MARGIN_W}  $R$R$R$R$R    $R$R    $R$R    $R$R      $R$R  $R$R      $R$R    $R$R$R$R$R     $R$R$R$R$R$R    $R$R    $R$R     $R$R$R$R$R
 "
 }
 
 function our() {
+_margin_width 46
 echo -e "
-                                                        $R$R$R$R     $R$R      $R$R  $R$R$R$R$R
-                                                      $R$R$R$R$R$R   $R$R      $R$R  $R$R$R$R$R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R    $R$R                                                        
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R$R$R$R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R$R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R  $R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
-                                                      $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
-                                                      $R$R$R$R$R$R   $R$R$R$R$R$R$R  $R$R      $R$R
-                                                        $R$R$R$R       $R$R$R$R$R    $R$R      $R$R
+${MARGIN_H}
+${MARGIN_W}   $R$R$R$R     $R$R      $R$R  $R$R$R$R$R
+${MARGIN_W} $R$R$R$R$R$R   $R$R      $R$R  $R$R$R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R    $R$R 
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R$R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R  $R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
+${MARGIN_W} $R$R    $R$R   $R$R      $R$R  $R$R    $R$R
+${MARGIN_W} $R$R$R$R$R$R   $R$R$R$R$R$R$R  $R$R      $R$R
+${MARGIN_W}   $R$R$R$R       $R$R$R$R$R    $R$R      $R$R
 "
 }
 
 function battery() {
+_margin_width 103
 echo -e "
-                         $W$W$W$W$W          $W$W$W      $W$W$W$W$W$W  $W$W$W$W$W$W  $W$W$W$W$W$W$W  $W$W$W$W$W     $W$W    $W$W
-                         $W$W$W$W$W$W      $W$W$W$W$W    $W$W$W$W$W$W  $W$W$W$W$W$W  $W$W$W$W$W$W$W  $W$W$W$W$W$W   $W$W    $W$W
-                         $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W   $W$W    $W$W
-                         $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W   $W$W    $W$W
-                         $W$W$W$W$W$W    $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W    $W$W    $W$W     $W$W$W$W
-                         $W$W$W$W$W      $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W    $W$W$W$W$W$W     $W$W$W$W
-                         $W$W    $W$W    $W$W$W$W$W$W$W      $W$W          $W$W      $W$W            $W$W$W$W           $W$W
-                         $W$W    $W$W    $W$W$W$W$W$W$W      $W$W          $W$W      $W$W            $W$W  $W$W         $W$W
-                         $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W       $W$W
-                         $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W       $W$W
-                         $W$W$W$W$W$W    $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W$W  $W$W      $W$W     $W$W
-                         $W$W$W$W$W      $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W$W  $W$W      $W$W     $W$W                             
+${MARGIN_H}
+${MARGIN_W} $W$W$W$W$W          $W$W$W      $W$W$W$W$W$W  $W$W$W$W$W$W  $W$W$W$W$W$W$W  $W$W$W$W$W     $W$W    $W$W
+${MARGIN_W} $W$W$W$W$W$W      $W$W$W$W$W    $W$W$W$W$W$W  $W$W$W$W$W$W  $W$W$W$W$W$W$W  $W$W$W$W$W$W   $W$W    $W$W
+${MARGIN_W} $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W   $W$W    $W$W
+${MARGIN_W} $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W   $W$W    $W$W
+${MARGIN_W} $W$W$W$W$W$W    $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W    $W$W    $W$W     $W$W$W$W
+${MARGIN_W} $W$W$W$W$W      $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W    $W$W$W$W$W$W     $W$W$W$W
+${MARGIN_W} $W$W    $W$W    $W$W$W$W$W$W$W      $W$W          $W$W      $W$W            $W$W$W$W           $W$W
+${MARGIN_W} $W$W    $W$W    $W$W$W$W$W$W$W      $W$W          $W$W      $W$W            $W$W  $W$W         $W$W
+${MARGIN_W} $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W       $W$W
+${MARGIN_W} $W$W    $W$W    $W$W      $W$W      $W$W          $W$W      $W$W            $W$W    $W$W       $W$W
+${MARGIN_W} $W$W$W$W$W$W    $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W$W  $W$W      $W$W     $W$W
+${MARGIN_W} $W$W$W$W$W      $W$W      $W$W      $W$W          $W$W      $W$W$W$W$W$W$W  $W$W      $W$W     $W$W 
 "
 }
 
 function and_now() {
+_margin_width 107
 echo -e "
-                           $R$R$R       $R$R    $R$R   $R$R$R$R$R                    $R$R    $R$R      $R$R$R$R     $R$R      $R$R
-                         $R$R$R$R$R     $R$R    $R$R   $R$R$R$R$R$R                  $R$R    $R$R    $R$R$R$R$R$R   $R$R      $R$R
-                       $R$R      $R$R   $R$R$R  $R$R   $R$R  $R$R$R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
-                       $R$R      $R$R   $R$R$R  $R$R   $R$R    $R$R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
-                       $R$R      $R$R   $R$R$R  $R$R   $R$R      $R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
-                       $R$R      $R$R   $R$R$R$R$R$R   $R$R      $R$R                $R$R$R$R$R$R    $R$R    $R$R   $R$R  $R  $R$R
-                       $R$R$R$R$R$R$R   $R$R$R$R$R$R   $R$R      $R$R                $R$R$R$R$R$R    $R$R    $R$R   $R$R  $R  $R$R
-                       $R$R$R$R$R$R$R   $R$R  $R$R$R   $R$R      $R$R                $R$R  $R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
-                       $R$R      $R$R   $R$R  $R$R$R   $R$R    $R$R$R                $R$R  $R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
-                       $R$R      $R$R   $R$R    $R$R   $R$R  $R$R$R$R                $R$R    $R$R    $R$R    $R$R   $R$R$R  $R$R$R
-                       $R$R      $R$R   $R$R    $R$R   $R$R$R$R$R$R                  $R$R    $R$R    $R$R$R$R$R$R   $R$R      $R$R
-                       $R$R      $R$R   $R$R    $R$R   $R$R$R$R$R                    $R$R    $R$R      $R$R$R$R     $R          $R                             
+${MARGIN_H}
+${MARGIN_W}    $R$R$R       $R$R    $R$R   $R$R$R$R$R                    $R$R    $R$R      $R$R$R$R     $R$R      $R$R
+${MARGIN_W}  $R$R$R$R$R     $R$R    $R$R   $R$R$R$R$R$R                  $R$R    $R$R    $R$R$R$R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R  $R$R   $R$R  $R$R$R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R  $R$R   $R$R    $R$R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R  $R$R   $R$R      $R$R                $R$R$R  $R$R    $R$R    $R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R$R$R$R$R   $R$R      $R$R                $R$R$R$R$R$R    $R$R    $R$R   $R$R  $R  $R$R
+${MARGIN_W}$R$R$R$R$R$R$R   $R$R$R$R$R$R   $R$R      $R$R                $R$R$R$R$R$R    $R$R    $R$R   $R$R  $R  $R$R
+${MARGIN_W}$R$R$R$R$R$R$R   $R$R  $R$R$R   $R$R      $R$R                $R$R  $R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
+${MARGIN_W}$R$R      $R$R   $R$R  $R$R$R   $R$R    $R$R$R                $R$R  $R$R$R    $R$R    $R$R   $R$R$R$R$R$R$R
+${MARGIN_W}$R$R      $R$R   $R$R    $R$R   $R$R  $R$R$R$R                $R$R    $R$R    $R$R    $R$R   $R$R$R  $R$R$R
+${MARGIN_W}$R$R      $R$R   $R$R    $R$R   $R$R$R$R$R$R                  $R$R    $R$R    $R$R$R$R$R$R   $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R    $R$R   $R$R$R$R$R                    $R$R    $R$R      $R$R$R$R     $R          $R 
 "
 }
 
 function we_re_full() {
+_margin_width 153
 echo -e "
-$R$R      $R$R  $R$R$R$R$R$R$R  $R$R         $R$R$R$R$R        $R$R$R$R$R$R$R              $R$R$R$R$R$R$R  $R$R      $R$R  $R$R            $R$R
-$R$R      $R$R  $R$R$R$R$R$R$R  $R$R         $R$R$R$R$R$R      $R$R$R$R$R$R$R              $R$R$R$R$R$R$R  $R$R      $R$R  $R$R            $R$R
-$R$R      $R$R  $R$R            $R$R         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R      $R$R  $R$R            $R$R         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R      $R$R  $R$R$R$R$R$R    $R$R         $R$R    $R$R      $R$R$R$R$R$R                $R$R$R$R$R$R    $R$R      $R$R  $R$R            $R$R
-$R$R  $R  $R$R  $R$R$R$R$R$R    $R$R         $R$R$R$R$R$R      $R$R$R$R$R$R                $R$R$R$R$R$R    $R$R      $R$R  $R$R            $R$R
-$R$R  $R  $R$R  $R$R                         $R$R$R$R$R        $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R$R$R$R$R$R  $R$R                         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R$R$R$R$R$R  $R$R                         $R$R      $R$R    $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R$R  $R$R$R  $R$R                         $R$R      $R$R    $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
-$R$R      $R$R  $R$R$R$R$R$R$R               $R$R        $R$R  $R$R$R$R$R$R$R              $R$R            $R$R$R$R$R$R$R  $R$R$R$R$R$R$R  $R$R$R$R$R$R$R
-$R          $R  $R$R$R$R$R$R$R               $R$R        $R$R  $R$R$R$R$R$R$R              $R$R              $R$R$R$R$R    $R$R$R$R$R$R$R  $R$R$R$R$R$R$R
+${MARGIN_H}
+${MARGIN_W}$R$R      $R$R  $R$R$R$R$R$R$R  $R$R         $R$R$R$R$R        $R$R$R$R$R$R$R              $R$R$R$R$R$R$R  $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R      $R$R  $R$R$R$R$R$R$R  $R$R         $R$R$R$R$R$R      $R$R$R$R$R$R$R              $R$R$R$R$R$R$R  $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R      $R$R  $R$R            $R$R         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R      $R$R  $R$R            $R$R         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R      $R$R  $R$R$R$R$R$R    $R$R         $R$R    $R$R      $R$R$R$R$R$R                $R$R$R$R$R$R    $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R  $R  $R$R  $R$R$R$R$R$R    $R$R         $R$R$R$R$R$R      $R$R$R$R$R$R                $R$R$R$R$R$R    $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R  $R  $R$R  $R$R                         $R$R$R$R$R        $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R$R$R$R$R$R  $R$R                         $R$R    $R$R      $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R$R$R$R$R$R  $R$R                         $R$R      $R$R    $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R$R  $R$R$R  $R$R                         $R$R      $R$R    $R$R                        $R$R            $R$R      $R$R  $R$R            $R$R
+${MARGIN_W}$R$R      $R$R  $R$R$R$R$R$R$R               $R$R        $R$R  $R$R$R$R$R$R$R              $R$R            $R$R$R$R$R$R$R  $R$R$R$R$R$R$R  $R$R$R$R$R$R$R
+${MARGIN_W}$R          $R  $R$R$R$R$R$R$R               $R$R        $R$R  $R$R$R$R$R$R$R              $R$R              $R$R$R$R$R    $R$R$R$R$R$R$R  $R$R$R$R$R$R$R
 "
 }
 
 function of() {
+_margin_width 28
 echo -e "
-                                                                $R$R$R$R     $R$R$R$R$R$R$R                                                              
-                                                              $R$R$R$R$R$R   $R$R$R$R$R$R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R    $R$R   $R$R$R$R$R$R
-                                                              $R$R    $R$R   $R$R$R$R$R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R    $R$R   $R$R
-                                                              $R$R$R$R$R$R   $R$R
-                                                                $R$R$R$R     $R$R
+${MARGIN_H}
+${MARGIN_W}   $R$R$R$R     $R$R$R$R$R$R$R 
+${MARGIN_W} $R$R$R$R$R$R   $R$R$R$R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R    $R$R   $R$R$R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R$R$R$R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R    $R$R   $R$R
+${MARGIN_W} $R$R$R$R$R$R   $R$R
+${MARGIN_W}   $R$R$R$R     $R$R
 "
 }
 
 function energy() {
+_margin_width 95
 echo -e "
-                             $W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W$W$W$W          $W$W$W$W$W$W   $W$W    $W$W
-                             $W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W$W$W$W$W      $W$W$W$W$W$W$W   $W$W    $W$W                             
-                             $W$W             $W$W$W  $W$W   $W$W            $W$W    $W$W      $W$W             $W$W    $W$W
-                             $W$W             $W$W$W  $W$W   $W$W            $W$W    $W$W      $W$W  $W$W$W$W   $W$W    $W$W
-                             $W$W$W$W$W$W     $W$W$W  $W$W   $W$W$W$W$W$W    $W$W    $W$W      $W$W  $W$W$W$W     $W$W$W$W
-                             $W$W$W$W$W$W     $W$W$W$W$W$W   $W$W$W$W$W$W    $W$W$W$W$W$W      $W$W      $W$W     $W$W$W$W
-                             $W$W             $W$W$W$W$W$W   $W$W            $W$W$W$W$W        $W$W      $W$W       $W$W
-                             $W$W             $W$W  $W$W$W   $W$W            $W$W    $W$W      $W$W      $W$W       $W$W
-                             $W$W             $W$W  $W$W$W   $W$W            $W$W      $W$W    $W$W      $W$W       $W$W
-                             $W$W             $W$W    $W$W   $W$W            $W$W      $W$W    $W$W      $W$W       $W$W
-                             $W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W        $W$W  $W$W$W$W$W$W$W       $W$W
-                             $W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W        $W$W    $W$W$W$W$W         $W$W
+${MARGIN_H}
+${MARGIN_W}$W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W$W$W$W          $W$W$W$W$W$W   $W$W    $W$W
+${MARGIN_W}$W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W$W$W$W$W      $W$W$W$W$W$W$W   $W$W    $W$W 
+${MARGIN_W}$W$W             $W$W$W  $W$W   $W$W            $W$W    $W$W      $W$W             $W$W    $W$W
+${MARGIN_W}$W$W             $W$W$W  $W$W   $W$W            $W$W    $W$W      $W$W  $W$W$W$W   $W$W    $W$W
+${MARGIN_W}$W$W$W$W$W$W     $W$W$W  $W$W   $W$W$W$W$W$W    $W$W    $W$W      $W$W  $W$W$W$W     $W$W$W$W
+${MARGIN_W}$W$W$W$W$W$W     $W$W$W$W$W$W   $W$W$W$W$W$W    $W$W$W$W$W$W      $W$W      $W$W     $W$W$W$W
+${MARGIN_W}$W$W             $W$W$W$W$W$W   $W$W            $W$W$W$W$W        $W$W      $W$W       $W$W
+${MARGIN_W}$W$W             $W$W  $W$W$W   $W$W            $W$W    $W$W      $W$W      $W$W       $W$W
+${MARGIN_W}$W$W             $W$W  $W$W$W   $W$W            $W$W      $W$W    $W$W      $W$W       $W$W
+${MARGIN_W}$W$W             $W$W    $W$W   $W$W            $W$W      $W$W    $W$W      $W$W       $W$W
+${MARGIN_W}$W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W        $W$W  $W$W$W$W$W$W$W       $W$W
+${MARGIN_W}$W$W$W$W$W$W$W   $W$W    $W$W   $W$W$W$W$W$W$W  $W$W        $W$W    $W$W$W$W$W         $W$W
 "
 }
 
@@ -189,10 +226,11 @@ function print_energy() {
 	return;
 }
 
+clear
 trap 'clear; tput cnorm;exit 1' SIGINT
 tput civis # Macだと "tput vi" かも
+_margin_height
 
-clear
 were; ${SLEEP} 0.1 > /dev/null; clear
 charging; ${SLEEP} 0.58 > /dev/null; clear
 our; ${SLEEP} 0.34 > /dev/null; clear
