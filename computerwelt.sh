@@ -8,8 +8,8 @@
 #
 
 N="`tput smso`  `tput rmso`"
-#SLEEP='sleepenh 0.1'
-SLEEP='sleep 1'
+SLEEP='sleepenh 0.1'
+#SLEEP='sleep 1'
 
 function c()
 {
