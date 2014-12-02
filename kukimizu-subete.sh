@@ -92,4 +92,4 @@ echo "${SUBETE}"
 # main
 clear; _CursorInvisible;
 KUKI_MIZU; _Sleep 2; clear;
-SUBETE; sleep 1.5; clear;
+SUBETE; _Sleep 1.5; clear;

@@ -92,4 +92,4 @@ echo "${ITSUMADEMO}"
 # main
 clear; _CursorInvisible;
 KYOUMO; _Sleep 1; clear;
-ITSUMADEMO; sleep 2; clear;
+ITSUMADEMO; _Sleep 2; clear;
