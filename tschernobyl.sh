@@ -7,16 +7,12 @@
 #        MIT
 #
 
-W="\033[48;5;255m  \033[m"	# White
-B="\033[48;5;232m  \033[m"  # Black
-N="  "
+W="\033[48;5;255m  \033[m"
+BG="\033[38;5;255m|\033[m"
 COLS=$(tput cols)
 LINES=$(tput lines)
-
 if $(which sleepenh >/dev/null 2>&1); then
     SLEEP='sleepenh'
-elif $(which usleep >/dev/null 2>&1); then
-	SLEEP='usleep'
 else
     SLEEP='sleep'
 fi
@@ -124,16 +120,80 @@ ${MARGIN_W}$W              $W$W$W$W    $W        $W    $W$W$W$W      $W$W$W$W   
 echo -en "${FUKUSHIMA}"
 }
 
+function print_tschernobyl() {
+	for ((i = 0;i < 32; i++)); do
+		tschernobyl
+		${SLEEP} 0.02 > /dev/null
+		clear
+		${SLEEP} 0.02 > /dev/null
+	done
+
+}
+
+function print_harrisburg() {
+	for ((i = 0;i < 32; i++)); do
+		harrisburg
+		${SLEEP} 0.02 > /dev/null
+		clear
+		${SLEEP} 0.02 > /dev/null
+	done
+}
+
+function print_sellafield() {
+	for ((i = 0;i < 32; i++)); do
+		sellafield
+		${SLEEP} 0.02 > /dev/null
+		clear
+		${SLEEP} 0.02 > /dev/null
+	done
+}
+
+function print_hiroshima() {
+	for ((i = 0;i < 32; i++)); do
+		hiroshima	
+		${SLEEP} 0.02 > /dev/null
+		clear
+		${SLEEP} 0.02 > /dev/null
+	done
+}
+
+function print_fukushima() {
+	for ((i = 0;i < 32; i++)); do
+		fukushima
+		${SLEEP} 0.02 > /dev/null
+		clear
+		${SLEEP} 0.02 > /dev/null
+	done
+}
+
+function print_strings() {
+	case ${1} in
+		0)
+			print_tschernobyl
+			;;
+		1)
+			print_harrisburg
+			;;
+		2)
+			print_sellafield
+			;;
+		3)
+			print_hiroshima
+			;;
+		4)
+			print_fukushima
+			;;
+	esac
+}
+
 clear
 trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
 _margin_height
 
-tschernobyl; sleep 2; clear
-harrisburg; sleep 2; clear
-sellafield; sleep 2; clear
-hiroshima; sleep 2; clear
-fukushima; sleep 2; clear
+for ((step = 0; step < 5; step++)); do
+	print_strings $step
+done
 
 tput cnorm
-exit 0;
+exit 0
