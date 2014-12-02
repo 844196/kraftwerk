@@ -121,48 +121,62 @@ echo -en "${FUKUSHIMA}"
 }
 
 function print_tschernobyl() {
-	for ((i = 0;i < 32; i++)); do
+	tschernobyl
+	${SLEEP} 1.76 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
 		tschernobyl
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 		clear
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 	done
-
 }
 
 function print_harrisburg() {
-	for ((i = 0;i < 32; i++)); do
+	harrisburg
+	${SLEEP} 1.76 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
 		harrisburg
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 		clear
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 	done
 }
 
 function print_sellafield() {
-	for ((i = 0;i < 32; i++)); do
+	sellafield
+	${SLEEP} 1.76 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
 		sellafield
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 		clear
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 	done
 }
 
 function print_hiroshima() {
-	for ((i = 0;i < 32; i++)); do
+	hiroshima
+	${SLEEP} 1.76 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
 		hiroshima	
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 		clear
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 	done
 }
 
 function print_fukushima() {
-	for ((i = 0;i < 32; i++)); do
+	fukushima
+	${SLEEP} 1.76 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
 		fukushima
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 		clear
-		${SLEEP} 0.02 > /dev/null
+		${SLEEP} 0.076 > /dev/null
 	done
 }
 
@@ -191,8 +205,12 @@ trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
 _margin_height
 
-for ((step = 0; step < 5; step++)); do
+for ((step = 0; step < 4; step++)); do
 	print_strings $step
+done
+
+for ((step = 0; step < 5; step++)); do
+	test $step -ne 3 && print_strings $step
 done
 
 tput cnorm
