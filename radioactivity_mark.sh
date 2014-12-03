@@ -39,7 +39,7 @@ function _margin_height() {
 	local lines=$(tput lines)
 	local height=$(expr \( ${lines} - ${1} \) / 2)
 	MARGIN_H=$(
-			for i in `seq 1 $height`; do
+			for i in `seq 1 ${height}`; do
 				echo " "
 			done
 		)
