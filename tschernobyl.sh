@@ -14,8 +14,8 @@ readonly BB="\033[48;5;16m \033[m"
 F=""   # Dynamic variable (Foreground)
 B=""   # Dynamic variable (Background)
 
-COLS=$(tput cols)
-LINES=$(tput lines)
+T_COLS=$(tput cols)
+T_LINES=$(tput lines)
 if $(which sleepenh >/dev/null 2>&1); then
     SLEEP='sleepenh'
 else
@@ -23,7 +23,7 @@ else
 fi
 
 function _margin_width() {
-	WIDTH=$(expr \( $COLS - $1 \) / 2)
+	WIDTH=$(expr \( ${T_COLS} - ${1} \) / 2)
 	MARGIN_W=$(
 			for i in `seq 1 $WIDTH`; do
 				echo -n " "
@@ -32,7 +32,7 @@ function _margin_width() {
 }
 
 function _margin_height() {
-	HEIGHT=$(expr \( $LINES - 13 \) / 2)
+	HEIGHT=$(expr \( ${T_LINES} - ${1} \) / 2)
 	MARGIN_H=$(
 			for i in `seq 1 $HEIGHT`; do
 				echo " "
@@ -42,6 +42,7 @@ function _margin_height() {
 
 function tschernobyl() {
 _margin_width 156
+_margin_height 11
 local TSCHERNOBYL="
 ${MARGIN_H}
 ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B
@@ -61,6 +62,7 @@ echo -ne "${TSCHERNOBYL}"
 
 function harrisburg() {
 _margin_width 156
+_margin_height 11
 local HARRISBURG="
 ${MARGIN_H}
 ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B
@@ -80,6 +82,7 @@ echo -en "${HARRISBURG}"
 
 function sellafield() {
 _margin_width 156
+_margin_height 11
 local SELLAFIELD="
 ${MARGIN_H}
 ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B
@@ -99,6 +102,7 @@ echo -en "${SELLAFIELD}"
 
 function hiroshima() {
 _margin_width 156
+_margin_height 11
 local HIROSHIMA="
 ${MARGIN_H}
 ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B
@@ -118,6 +122,7 @@ echo -en "${HIROSHIMA}"
 
 function fukushima() {
 _margin_width 156
+_margin_height 11
 local FUKUSHIMA="
 ${MARGIN_H}
 ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B
@@ -177,7 +182,6 @@ function print_strings() {
 clear
 trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
-_margin_height
 
 for ((step = 0; step < 4; step++)); do
 	print_strings $step

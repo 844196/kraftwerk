@@ -11,8 +11,9 @@ readonly W="\033[48;5;255m  \033[m"
 readonly R="\033[48;5;1m \033[m"
 readonly N="\033m[48;5;16m \033[m"
 T=""	# Dynamic variable
-COLS=$(tput cols)
-LINES=$(tput lines)
+
+T_COLS=$(tput cols)
+T_LINES=$(tput lines)
 if $(which sleepenh >/dev/null 2>&1); then
     SLEEP='sleepenh'
 else
@@ -20,7 +21,7 @@ else
 fi
 
 function _margin_width() {
-	WIDTH=$(expr \( $COLS - $1 \) / 2)
+	WIDTH=$(expr \( ${T_COLS} - ${1} \) / 2)
 	MARGIN_W=$(
 			for i in `seq 1 $WIDTH`; do
 				echo -n " "
@@ -29,7 +30,7 @@ function _margin_width() {
 }
 
 function _margin_height() {
-	HEIGHT=$(expr \( $LINES - 13 \) / 2)
+	HEIGHT=$(expr \( ${T_LINES} - ${1} \) / 2)
 	MARGIN_H=$(
 			for i in `seq 1 $HEIGHT`; do
 				echo " "
@@ -39,6 +40,7 @@ function _margin_height() {
 
 function stop_radioactivity() {
 _margin_width 60
+_margin_height 9
 local STOP="
 ${MARGIN_H}
 ${MARGIN_W}  $W$W$W$W      $W$W$W$W$W$W      $W$W$W$W      $W$W$W$W$W
@@ -56,6 +58,7 @@ echo -ne "${STOP}"
 
 function radioactivity() {
 _margin_width 154
+_margin_height 11
 local RADIOACTIVITY="
 ${MARGIN_H}
 ${MARGIN_W}$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T
@@ -90,7 +93,6 @@ function print_radioactivity() {
 clear
 trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
-_margin_height
 
 stop_radioactivity; ${SLEEP} 0.398 > /dev/null ; clear
 print_radioactivity; clear
