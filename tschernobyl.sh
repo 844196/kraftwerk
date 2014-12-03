@@ -221,7 +221,7 @@ clear
 trap 'clear; tput cnorm; exit 1' SIGINT
 tput civis
 _margin_height
-#init_flash_screen
+init_flash_screen	# こ↑こ↓
 
 for ((step = 0; step < 4; step++)); do
 	print_strings $step
