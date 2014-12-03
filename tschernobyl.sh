@@ -135,129 +135,43 @@ ${MARGIN_W}$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$B$
 echo -en "${FUKUSHIMA}"
 }
 
-function print_tschernobyl() {
-	F=${FW}
-	B=${BB}
-	tschernobyl
-	${SLEEP} 1.78 > /dev/null
-	clear
-	for ((i = 0;i < 12; i++)); do
-		F=${FB}
-		B=${BW}
-		tschernobyl
-		${SLEEP} 0.076 > /dev/null
-		clear
-
-		F=${FW}
-		B=${BB}
-		tschernobyl
-		${SLEEP} 0.076 > /dev/null
-		clear
-	done
-}
-
-function print_harrisburg() {
-	F=${FW}
-	B=${BB}
-	harrisburg
-	${SLEEP} 1.78 > /dev/null
-	clear
-	for ((i = 0;i < 12; i++)); do
-		F=${FB}
-		B=${BW}
-		harrisburg
-		${SLEEP} 0.076 > /dev/null
-		clear
-
-		F=${FW}
-		B=${BB}
-		harrisburg
-		${SLEEP} 0.076 > /dev/null
-		clear
-	done
-}
-
-function print_sellafield() {
-	F=${FW}
-	B=${BB}
-	sellafield
-	${SLEEP} 1.78 > /dev/null
-	clear
-	for ((i = 0;i < 12; i++)); do
-		F=${FB}
-		B=${BW}
-		sellafield
-		${SLEEP} 0.076 > /dev/null
-		clear
-
-		F=${FW}
-		B=${BB}
-		sellafield
-		${SLEEP} 0.076 > /dev/null
-		clear
-	done
-}
-
-function print_hiroshima() {
-	F=${FW}
-	B=${BB}
-	hiroshima
-	${SLEEP} 1.78 > /dev/null
-	clear
-	for ((i = 0;i < 12; i++)); do
-		F=${FB}
-		B=${BW}
-		hiroshima	
-		${SLEEP} 0.076 > /dev/null
-		clear
-
-		F=${FW}
-		B=${BB}
-		hiroshima
-		${SLEEP} 0.076 > /dev/null
-		clear
-	done
-}
-
-function print_fukushima() {
-	F=${FW}
-	B=${BB}
-	fukushima
-	${SLEEP} 1.78 > /dev/null
-	clear
-	for ((i = 0;i < 12; i++)); do
-		F=${FB}
-		B=${BW}
-		fukushima
-		${SLEEP} 0.076 > /dev/null
-		clear
-
-		F=${FW}
-		B=${BB}
-		fukushima
-		${SLEEP} 0.076 > /dev/null
-		clear
-	done
-}
-
 function print_strings() {
 	case ${1} in
 		0)
-			print_tschernobyl
+			TAG="tschernobyl"
 			;;
 		1)
-			print_harrisburg
+			TAG="harrisburg"
 			;;
 		2)
-			print_sellafield
+			TAG="sellafield"
 			;;
 		3)
-			print_hiroshima
+			TAG="hiroshima"
 			;;
 		4)
-			print_fukushima
+			TAG="fukushima"
 			;;
 	esac
+
+	F=${FW}
+	B=${BB}
+	${TAG}
+	${SLEEP} 1.78 > /dev/null
+	clear
+	for ((i = 0;i < 12; i++)); do
+		F=${FB}
+		B=${BW}
+		${TAG}
+		${SLEEP} 0.076 > /dev/null
+		clear
+
+		F=${FW}
+		B=${BB}
+		${TAG}
+		${SLEEP} 0.076 > /dev/null
+		clear
+	done
 }
 
 clear
