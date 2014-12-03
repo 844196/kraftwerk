@@ -12,30 +12,47 @@ readonly R="\033[48;5;1m \033[m"
 readonly N="\033m[48;5;16m \033[m"
 T=""	# Dynamic variable
 
-T_COLS=$(tput cols)
-T_LINES=$(tput lines)
-if $(which sleepenh >/dev/null 2>&1); then
-    SLEEP='sleepenh'
-else
-    SLEEP='sleep'
-fi
+function _sleep() {
+	if $(which sleepenh > /dev/null 2>&1); then
+		SLEEP='sleepenh'
+	elif $(which usleep > /dev/null 2>&1); then
+		SLEEP='usleep'
+	else
+   		SLEEP='sleep'
+	fi
+	${SLEEP} ${1} > /dev/null
+}
 
 function _margin_width() {
-	WIDTH=$(expr \( ${T_COLS} - ${1} \) / 2)
+	local cols=$(tput cols)
+	local width=$(expr \( ${cols} - ${1} \) / 2)
 	MARGIN_W=$(
-			for i in `seq 1 $WIDTH`; do
+			for i in `seq 1 ${width}`; do
 				echo -n " "
 			done
 		)
 }
 
 function _margin_height() {
-	HEIGHT=$(expr \( ${T_LINES} - ${1} \) / 2)
+	local lines=$(tput lines)
+	local height=$(expr \( ${lines} - ${1} \) / 2)
 	MARGIN_H=$(
-			for i in `seq 1 $HEIGHT`; do
+			for i in `seq 1 $height`; do
 				echo " "
 			done
 		)
+}
+
+function _initscr() {
+	clear
+	trap 'tput cnorm; exit 1' SIGINT
+	trap 'tput cnorm; exit 0' EXIT
+	tput civis
+}
+
+function _endscr() {
+	clear
+	tput cnorm
 }
 
 function stop_radioactivity() {
@@ -80,22 +97,19 @@ function print_radioactivity() {
 	for ((i = 0; i < 8; i++)); do
 		T=${R}
 		radioactivity
-		${SLEEP} 0.224 > /dev/null
+		_sleep 0.224
 		clear
 
 		T=' '
 		radioactivity
-		${SLEEP} 0.224 > /dev/null
+		_sleep 0.224
 		clear
 	done
 }
 
-clear
-trap 'clear; tput cnorm; exit 1' SIGINT
-tput civis
+_initscr
 
-stop_radioactivity; ${SLEEP} 0.398 > /dev/null ; clear
+stop_radioactivity; _sleep 0.398; clear
 print_radioactivity; clear
 
-tput cnorm
-exit 0
+_endscr

@@ -14,30 +14,47 @@ readonly BB="\033[48;5;16m \033[m"
 F=""   # Dynamic variable (Foreground)
 B=""   # Dynamic variable (Background)
 
-T_COLS=$(tput cols)
-T_LINES=$(tput lines)
-if $(which sleepenh >/dev/null 2>&1); then
-    SLEEP='sleepenh'
-else
-    SLEEP='sleep'
-fi
+function _sleep() {
+	if $(which sleepenh > /dev/null 2>&1); then
+		SLEEP='sleepenh'
+	elif $(which usleep > /dev/null 2>&1); then
+		SLEEP='usleep'
+	else
+   		SLEEP='sleep'
+	fi
+	${SLEEP} ${1} > /dev/null
+}
 
 function _margin_width() {
-	WIDTH=$(expr \( ${T_COLS} - ${1} \) / 2)
+	local cols=$(tput cols)
+	local width=$(expr \( ${cols} - ${1} \) / 2)
 	MARGIN_W=$(
-			for i in `seq 1 $WIDTH`; do
+			for i in `seq 1 ${width}`; do
 				echo -n " "
 			done
 		)
 }
 
 function _margin_height() {
-	HEIGHT=$(expr \( ${T_LINES} - ${1} \) / 2)
+	local lines=$(tput lines)
+	local height=$(expr \( ${lines} - ${1} \) / 2)
 	MARGIN_H=$(
-			for i in `seq 1 $HEIGHT`; do
+			for i in `seq 1 $height`; do
 				echo " "
 			done
 		)
+}
+
+function _initscr() {
+	clear
+	trap 'tput cnorm; exit 1' SIGINT
+	trap 'tput cnorm; exit 0' EXIT
+	tput civis
+}
+
+function _endscr() {
+	clear
+	tput cnorm
 }
 
 function tschernobyl() {
@@ -162,26 +179,24 @@ function print_strings() {
 	F=${FW}
 	B=${BB}
 	${TAG}
-	${SLEEP} 1.78 > /dev/null
+	_sleep 1.82
 	clear
 	for ((i = 0;i < 12; i++)); do
 		F=${FB}
 		B=${BW}
 		${TAG}
-		${SLEEP} 0.076 > /dev/null
+		_sleep 0.067
 		clear
 
 		F=${FW}
 		B=${BB}
 		${TAG}
-		${SLEEP} 0.076 > /dev/null
+		_sleep 0.067
 		clear
 	done
 }
 
-clear
-trap 'clear; tput cnorm; exit 1' SIGINT
-tput civis
+_initscr
 
 for ((step = 0; step < 4; step++)); do
 	print_strings $step
@@ -193,5 +208,4 @@ for ((step = 0; step < 5; step++)); do
 	clear
 done
 
-tput cnorm
-exit 0
+_endscr
