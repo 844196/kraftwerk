@@ -28,14 +28,20 @@ function _Sleep() {
 
 function _MarginHeight() {
     local height=$(tput lines)
-    local m=$(expr \( ${height} - ${1} \) / 2)
-    for i in $(seq 1 ${m}); do
+    local m=$[(${height}-${1})/2]
+    for i in $(seq 1 ${m})
+    do
         echo " "
     done
 }
 
 function _MarginWidth() {
     local cols=$(tput cols)
-    local w=$(expr \( ${cols} - ${1} \) / 2)
-    MARGIN_W=$(for i in `seq 1 ${w}`; do printf " "; done)
+    local w=$[(${cols}-${1})/2]
+    MARGIN_W=$(
+        for i in $(seq 1 ${w})
+        do
+            printf " "
+        done
+    )
 }
