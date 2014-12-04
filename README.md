@@ -7,6 +7,9 @@
 ## Overview
 Gistで公開していた**クラフトワークの後ろで流れてる奴っぽいシェルスクリプト**をまとめました
 
+## Requirement
+`sleepenh`(usleep)
+
 ## Authors
 - sasairc
     - *GitHub* [sasairc](https://github.com/sasairc)
