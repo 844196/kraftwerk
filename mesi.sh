@@ -47,6 +47,26 @@ N="  "
 
 
 # char set
+function MAN() {
+_MarginHeight 12; _MarginWidth 42;
+local MAN="
+${MARGIN_W}$R$R      $R$R     $R$R     $R$R      $R$R
+${MARGIN_W}$R$R      $R$R     $R$R     $R$R      $R$R
+${MARGIN_W}$R$R      $R$R   $R$R       $R$R      $R$R
+${MARGIN_W}$R$R$R  $R$R$R $R$R      $R $R$R$R    $R$R
+${MARGIN_W}$R$R$R  $R$R$R $R$R    $R$R $R$R$R    $R$R
+${MARGIN_W}$R$R$R$R  $R$R $R$R    $R$R $R$R$R    $R$R
+${MARGIN_W}$R$R  $R  $R$R $R$R    $R$R $R$R$R$R  $R$R
+${MARGIN_W}$R$R  $R  $R$R $R$R$R$R$R$R $R$R$R$R  $R$R
+${MARGIN_W}$R$R      $R$R $R$R$R$R$R$R $R$R  $R  $R$R
+${MARGIN_W}$R$R      $R$R $R$R    $R$R $R$R  $R  $R$R
+${MARGIN_W}$R$R      $R$R $R$R    $R$R $R$R      $R$R
+${MARGIN_W}$R$R      $R$R $R$R    $R$R $R$R      $R$R
+${MARGIN_W}$R$R      $R$R $R$R    $R$R $R$R      $R$R
+"
+echo "${MAN}"
+}
+
 function MACHINE1() {
 _MarginHeight 48; _MarginWidth 126;
 local MACHINE1="
@@ -175,5 +195,6 @@ function obi() {
 
 # main
 clear; _CursorInvisible;
+MAN; _Sleep 0.5;
 kaidan; _Sleep 0.3;
 obi;
