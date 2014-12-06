@@ -50,22 +50,34 @@ N="  "
 function MENSCH() {
 _MarginHeight 12; _MarginWidth 82;
 local MENSCH="
-${MARGIN_W}$W$W      $W$W  $W$W$W$W$W  $W$W      $W$W    $W$W$W      $W$W$W$W    $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W  $W$W$W$W$W$W  $W$W    $W$W
-${MARGIN_W}$W$W$W  $W$W$W  $W$W        $W$W$W    $W$W  $W$W  $W$W  $W$W    $W$W  $W$W    $W$W
-${MARGIN_W}$W$W$W  $W$W$W  $W$W        $W$W$W    $W$W  $W$W        $W$W    $W$W  $W$W    $W$W
-${MARGIN_W}$W$W$W$W  $W$W  $W$W$W$W$W  $W$W$W$W  $W$W  $W$W        $W$W          $W$W  $W$W$W
-${MARGIN_W}$W$W  $W  $W$W  $W$W$W$W$W  $W$W$W$W  $W$W  $W$W$W      $W$W          $W$W  $W$W$W
-${MARGIN_W}$W$W  $W  $W$W  $W$W        $W$W$W$W  $W$W    $W$W$W$W  $W$W          $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W        $W$W  $W  $W$W        $W$W  $W$W          $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W        $W$W  $W  $W$W        $W$W  $W$W    $W$W  $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W        $W$W      $W$W  $W$W  $W$W  $W$W    $W$W  $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W  $W$W  $W$W      $W$W  $W$W$W$W$W  $W$W$W$W$W$W  $W$W    $W$W
-${MARGIN_W}$W$W      $W$W  $W$W  $W$W  $W$W      $W$W    $W$W$W      $W$W$W$W    $W$W    $W$W
+${MARGIN_W}$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T
+${MARGIN_W}
+${MARGIN_W}  $W$W      $W$W  $W$W$W$W$W  $W$W      $W$W    $W$W$W      $W$W$W$W    $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W$W$W$W  $W$W      $W$W  $W$W$W$W$W  $W$W$W$W$W$W  $W$W    $W$W
+${MARGIN_W}  $W$W$W  $W$W$W  $W$W        $W$W$W    $W$W  $W$W  $W$W  $W$W    $W$W  $W$W    $W$W
+${MARGIN_W}  $W$W$W  $W$W$W  $W$W        $W$W$W    $W$W  $W$W        $W$W    $W$W  $W$W    $W$W
+${MARGIN_W}  $W$W$W$W  $W$W  $W$W$W$W$W  $W$W$W$W  $W$W  $W$W        $W$W          $W$W  $W$W$W
+${MARGIN_W}  $W$W  $W  $W$W  $W$W$W$W$W  $W$W$W$W  $W$W  $W$W$W      $W$W          $W$W  $W$W$W
+${MARGIN_W}  $W$W  $W  $W$W  $W$W        $W$W$W$W  $W$W    $W$W$W$W  $W$W          $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W        $W$W  $W  $W$W        $W$W  $W$W          $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W        $W$W  $W  $W$W        $W$W  $W$W    $W$W  $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W        $W$W      $W$W  $W$W  $W$W  $W$W    $W$W  $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W  $W$W  $W$W      $W$W  $W$W$W$W$W  $W$W$W$W$W$W  $W$W    $W$W
+${MARGIN_W}  $W$W      $W$W  $W$W  $W$W  $W$W      $W$W    $W$W$W      $W$W$W$W    $W$W    $W$W
+${MARGIN_W}
+${MARGIN_W}$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T$T
 "
 echo "${MENSCH}"
 }
 
+function REFLECTION() {
+    for i in {0..6};
+    do
+        T=${N}; MENSCH; _Sleep 0.1; clear;
+        T=${R}; MENSCH; _Sleep 0.1; clear;
+    done
+}
+
 # main
 clear; _CursorInvisible;
-MENSCH
+REFLECTION
