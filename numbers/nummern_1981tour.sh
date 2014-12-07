@@ -362,19 +362,30 @@ echo -ne "${BLANK}"
 # main
 _initscr
 
-nummern_eins; _sleep 0.4; clear
-nummern_zwei; _sleep 0.4; clear
-nummern_drei; _sleep 0.4; clear
-nummern_vier; _sleep 0.4; clear
-nummern_funf; _sleep 0.4; clear
-nummern_sechs; _sleep 0.4; clear
-nummern_siben; _sleep 0.4; clear
-nummern_acht; _sleep 0.4; clear
+for ((i = 0; i < 4; i++)); do
+	nummern_eins; _sleep 0.41; clear
+	nummern_zwei; _sleep 0.41; clear
+	nummern_drei; _sleep 0.41; clear
+	nummern_vier; _sleep 0.41; clear
+	nummern_funf; _sleep 0.41; clear
+	nummern_sechs; _sleep 0.41; clear
+	nummern_siben; _sleep 0.41; clear
+	nummern_acht; _sleep 0.41; clear
 
-nummern_blank; _sleep 0.5; clear
-
-# one two
-nummern_eins; _sleep 0.4; clear
-nummern_zwei; _sleep 0.4; clear
+	if [ $i = 0 -o $i = 2 ]; then
+		# one two
+		nummern_blank; _sleep 0.5; clear
+		nummern_eins; _sleep 0.4; clear
+		nummern_zwei; _sleep 0.4; clear
+		nummern_blank; _sleep 2.24; clear
+	else
+		# un doux trois
+		nummern_blank; _sleep 0.18; clear
+		nummern_eins; _sleep 0.75; clear
+		nummern_zwei; _sleep 0.75; clear
+		nummern_drei; _sleep 0.75; clear
+		nummern_blank; _sleep 1.2; clear
+	fi
+done
 
 _endscr
