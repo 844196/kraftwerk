@@ -12,9 +12,9 @@ readonly green_b="\033[48;5;46m  \033[m"
 readonly white="\033[48;5;255m  \033[m"
 readonly grey="\033[48;5;250m  \033[m"
 readonly NULL="  "
-A="  "; B="  " # One
-C="  "; D="  " # Two
-E="  "; F="  " #Three
+A="  "; B="  " # Four
+C="  "; D="  " # Five
+E="  "; F="  " # Six
 FA=(A C E)
 FB=(B D F)
 

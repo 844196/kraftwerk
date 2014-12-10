@@ -14,7 +14,9 @@ readonly grey="\033[48;5;250m  \033[m"
 readonly NULL="  "
 A="  "; B="  " # One
 C="  "; D="  " # Two
-E="  "; F="  " #Three
+E="  "; F="  " # Three
+FA=(A C E)
+FB=(B D F)
 
 function _sleep() {
 	if $(which sleepenh > /dev/null 2>&1); then
@@ -85,32 +87,31 @@ echo -e "${ONE}"
 
 function print_one_two_three() {
 	for ((i = 0; i < 4; i++)); do
-		A=${green_a}; B=${green_b}
+		printf -v "${FA[0]}" "${green_a}"
+		printf -v "${FB[0]}" "${green_b}"
 		one_two_three
 		_sleep 0.02
 		clear
-		A=${NULL}; B=${NULL}
+
+		printf -v "${FA[0]}" "${NULL}"
+		printf -v "${FB[0]}" "${NULL}"
 		one_two_three
 		_sleep 0.02
 		clear
 	done
-	A=${green_a}; B=${green_b}
-	one_two_three
-	_sleep 0.2
-	clear
 
-	C=${green_a}; D=${green_b}
-
+	for ((i = 0; i < 3; i++)); do
+		printf -v "${FA[$i]}" "${green_a}"
+		printf -v "${FB[$i]}" "${green_b}"
+		one_two_three
+		_sleep 0.24
+		clear
+	done
 	one_two_three
-	_sleep 0.3
-	clear
-
-	E=${green_a}; F=${green_b}
-	one_two_three
-	_sleep 0.3
-	clear
+	_sleep 0.8
 }
 
+# main
 _initscr
 
 print_one_two_three
