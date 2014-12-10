@@ -71,10 +71,64 @@ $A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
 ```
 
 ### four
+```
+                  $A$A$A$A$A
+                  $A$B$B$B$A
+            $A$A$A$A$B$B$B$A
+            $A$B$B$B$B$B$B$A
+            $A$B$B$B$B$B$B$A
+      $A$A$A$A$B$B$B$B$B$B$A
+      $A$B$B$B$B$B$B$B$B$B$A
+      $A$B$A$A$A$A$A$B$B$B$A
+$A$A$A$A$B$A      $A$B$B$B$A
+$A$B$B$B$B$A      $A$B$B$B$A
+$A$B$B$B$B$A      $A$B$B$B$A
+$A$B$B$B$B$A$A$A$A$A$B$B$B$A$A$A
+$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+$A$A$A$A$A$A$A$A$A$A$B$B$B$A$A$A
+                  $A$B$B$B$A
+                  $A$A$A$A$A
+```
 
 ### five
+```
+$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+$A$B$B$B$A$A$A$A$A$A$A$A$A$A$A$A
+$A$B$B$B$A
+$A$B$B$B$A
+$A$B$B$B$A$A$A$A$A$A$A$A$A$A
+$A$B$B$B$B$B$B$B$B$B$B$B$B$A$A$A
+$A$A$A$A$A$A$A$A$A$A$A$A$B$B$B$A
+                      $A$B$B$B$A
+                      $A$B$B$B$A
+                      $A$B$B$B$A
+                      $A$B$B$B$A
+$A$A$A$A$A            $A$B$B$B$A
+$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+    $A$A$A$A$A$A$A$A$A$A$A$A
+```
 
 ### six
+```
+        $A$A$A$A$A$A$A$A$A$A
+    $A$A$A$B$B$B$B$B$B$B$B$A
+$A$A$A$B$B$B$B$A$A$A$A$A$A$A
+$A$B$B$B$A$A$A$A
+$A$B$B$B$A
+$A$B$B$B$A
+$A$B$B$B$A$A$A$A$A$A$A$A$A$A
+$A$B$B$B$B$B$B$B$B$B$B$B$B$A$A$A
+$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+$A$B$B$B$A            $A$B$B$B$A
+$A$B$B$B$A            $A$B$B$B$A
+$A$B$B$B$A            $A$B$B$B$A
+$A$B$B$B$A            $A$B$B$B$A
+$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+    $A$A$A$A$A$A$A$A$A$A$A$A
+```
 
 ### seven
 ```
