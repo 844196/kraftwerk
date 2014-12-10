@@ -61,7 +61,7 @@ function _endscr() {
 
 function one_two_three() {
 _margin_width 108
-_margin_height 16
+_margin_height 15
 local ONE="
 ${MARGIN_H}
 ${MARGIN_W}          $A$A$A$A$A$A                  $C$C$C$C$C$C$C$C$C$C$C$C$C          $E$E$E$E$E$E$E$E$E$E$E$E$E$E$E$E
