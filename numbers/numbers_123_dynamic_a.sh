@@ -66,7 +66,7 @@ _margin_width 108
 _margin_height 16
 A=${grey}
 B=${white}
-local INTERVAL="0.02"
+local INTERVAL="0.028"
 
 local ROULETTE[0]="
 ${MARGIN_H}
@@ -267,7 +267,7 @@ function print_one_two_three() {
 		printf -v "${FA[$i]}" "${grey}"
 		printf -v "${FB[$i]}" "${white}"
 		one_two_three
-		_sleep 0.24
+		_sleep 0.188
 		clear
 	done
 	one_two_three
