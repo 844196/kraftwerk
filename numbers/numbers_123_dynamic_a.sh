@@ -61,16 +61,191 @@ function _endscr() {
 	tput cnorm
 }
 
+function roulette() {
+_margin_width 108
+_margin_height 16
+A=${grey}
+B=${white}
+local INTERVAL="0.02"
+
+local ROULETTE[0]="
+${MARGIN_H}
+${MARGIN_W}          $A$A$A$A$A$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}  $A$A$A$A$A$B$B$B$B$A
+${MARGIN_W}  $A$B$B$B$B$B$B$B$B$A
+${MARGIN_W}  $A$A$A$A$A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$B$B$B$B$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+local ROULETTE[1]="
+${MARGIN_H}
+${MARGIN_W}  $A$A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$A$B$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}$A$B$B$A$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$B$B$A              $A$B$B$B$A
+${MARGIN_W}$A$A$A$A              $A$B$B$B$A
+${MARGIN_W}                      $A$B$A$A$A
+${MARGIN_W}                $A$A$A$A$B$A
+${MARGIN_W}                $A$B$B$B$B$A
+${MARGIN_W}          $A$A$A$A$B$A$A$A$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}      $A$A$A$B$A$A$A$A
+${MARGIN_W}      $A$B$B$B$A
+${MARGIN_W}      $A$B$B$B$A
+${MARGIN_W}$A$A$A$A$B$B$B$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+local ROULETTE[2]="
+${MARGIN_H}
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$B$B$B$B$A$A$A
+${MARGIN_W}                $A$B$B$B$B$A
+${MARGIN_W}                $A$B$B$B$B$A
+${MARGIN_W}                $A$B$A$A$A$A
+${MARGIN_W}          $A$A$A$A$B$A
+${MARGIN_W}          $A$B$B$B$B$A
+${MARGIN_W}          $A$A$A$A$B$A$A$A$A
+${MARGIN_W}                $A$B$B$B$B$A
+${MARGIN_W}                $A$A$A$A$B$A
+${MARGIN_W}$A$A$A$A$A            $A$B$A$A$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}    $A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+local ROULETTE[3]="
+${MARGIN_H}
+${MARGIN_W}                  $A$A$A$A$A
+${MARGIN_W}                  $A$B$B$B$A
+${MARGIN_W}            $A$A$A$A$B$B$B$A
+${MARGIN_W}            $A$B$B$B$B$B$B$A
+${MARGIN_W}            $A$B$B$B$B$B$B$A
+${MARGIN_W}      $A$A$A$A$B$B$B$B$B$B$A
+${MARGIN_W}      $A$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}      $A$B$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$A$A$A$B$A      $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$B$A      $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$B$A      $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$B$A$A$A$A$A$B$B$B$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$B$B$B$A$A$A
+${MARGIN_W}                  $A$B$B$B$A
+${MARGIN_W}                  $A$A$A$A$A
+"
+
+local ROULETTE[4]="
+${MARGIN_H}
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}$A$A$A$A$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}    $A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+local ROULETTE[5]="
+${MARGIN_H}
+${MARGIN_W}        $A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}    $A$A$A$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$B$B$B$B$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$A$A$A$A
+${MARGIN_W}$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}    $A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+local ROULETTE[6]="
+${MARGIN_H}
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$B$B$B$B$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$A$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}                      $A$B$B$B$A
+${MARGIN_W}                  $A$A$A$B$B$A$A
+${MARGIN_W}                  $A$B$B$B$B$A
+${MARGIN_W}            $A$A$A$A$B$B$B$B$A
+${MARGIN_W}            $A$B$B$B$B$B$A$A$A
+${MARGIN_W}            $A$B$B$B$B$B$A
+${MARGIN_W}            $A$B$B$A$A$A$A
+${MARGIN_W}      $A$A$A$A$B$B$A
+${MARGIN_W}      $A$B$B$B$B$B$A
+${MARGIN_W}      $A$B$B$B$B$B$A
+${MARGIN_W}      $A$B$B$B$B$B$A
+${MARGIN_W}      $A$A$A$A$A$A$A
+"
+
+local ROULETTE[7]="
+${MARGIN_H}
+${MARGIN_W}    $A$A$A$A$A$A$A$A$A$A$A$A
+${MARGIN_W}$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$A$A$B$A$A$A$A$A$A$A$A$B$A$A$A
+${MARGIN_W}    $A$B$B$B$B$B$B$B$B$B$B$A
+${MARGIN_W}$A$A$A$B$A$A$A$A$A$A$A$A$B$A$A$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A            $A$B$B$B$A
+${MARGIN_W}$A$B$B$B$A$A$A$A$A$A$A$A$B$B$B$A
+${MARGIN_W}$A$A$A$B$B$B$B$B$B$B$B$B$B$A$A$A
+${MARGIN_W}    $A$A$A$A$A$A$A$A$A$A$A$A
+"
+
+for ((i = 0; i < 8; i++)); do
+	echo -ne "${ROULETTE[$i]}"
+	_sleep ${INTERVAL}
+	clear
+done
+}
+
 function one_two_three() {
 _margin_width 108
-_margin_height 15
+_margin_height 16
 local ONE="
 ${MARGIN_H}
 ${MARGIN_W}          $A$A$A$A$A$A                  $C$C$C$C$C$C$C$C$C$C$C$C$C          $E$E$E$E$E$E$E$E$E$E$E$E$E$E$E$E
 ${MARGIN_W}          $A$B$B$B$B$A                $C$C$D$D$D$D$D$D$D$D$D$D$D$C$C$C      $E$F$F$F$F$F$F$F$F$F$F$F$F$F$F$E
 ${MARGIN_W}  $A$A$A$A$A$B$B$B$B$A                $C$C$D$C$C$C$C$C$C$C$C$C$D$D$D$C      $E$E$E$E$E$E$E$E$E$F$F$F$F$E$E$E
 ${MARGIN_W}  $A$B$B$B$B$B$B$B$B$A                $C$D$D$C              $C$D$D$D$C                      $E$F$F$F$F$E
-${MARGIN_W}  $A$A$A$A$A$B$B$B$B$A                $C$C$C$C              $C$D$C$C$C                      $E$F$E$E$E$E
+${MARGIN_W}  $A$A$A$A$A$B$B$B$B$A                $C$C$C$C              $C$D$D$D$C                      $E$F$F$F$F$E
+${MARGIN_W}          $A$B$B$B$B$A                                      $C$D$C$C$C                      $E$F$E$E$E$E
 ${MARGIN_W}          $A$B$B$B$B$A                                $C$C$C$C$D$C                    $E$E$E$E$F$E
 ${MARGIN_W}          $A$B$B$B$B$A                                $C$D$D$D$D$C                    $E$F$F$F$F$E
 ${MARGIN_W}          $A$B$B$B$B$A                          $C$C$C$C$D$C$C$C$C                    $E$E$E$E$F$E$E$E$E
@@ -86,23 +261,11 @@ echo -e "${ONE}"
 }
 
 function print_one_two_three() {
-	for ((i = 0; i < 4; i++)); do
-		printf -v "${FA[0]}" "${green_a}"
-		printf -v "${FB[0]}" "${green_b}"
-		one_two_three
-		_sleep 0.02
-		clear
-
-		printf -v "${FA[0]}" "${NULL}"
-		printf -v "${FB[0]}" "${NULL}"
-		one_two_three
-		_sleep 0.02
-		clear
-	done
+	roulette
 
 	for ((i = 0; i < 3; i++)); do
-		printf -v "${FA[$i]}" "${green_a}"
-		printf -v "${FB[$i]}" "${green_b}"
+		printf -v "${FA[$i]}" "${grey}"
+		printf -v "${FB[$i]}" "${white}"
 		one_two_three
 		_sleep 0.24
 		clear
