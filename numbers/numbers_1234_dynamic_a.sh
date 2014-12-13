@@ -12,6 +12,7 @@ readonly green_b="\033[48;5;46m  \033[m"
 readonly white="\033[48;5;255m  \033[m"
 readonly grey="\033[48;5;250m  \033[m"
 readonly NULL="  "
+readonly INTERVAL="0.096"
 A="  "; B="  " # Eins
 C="  "; D="  " # Zwei 
 E="  "; F="  " # Drei
@@ -122,7 +123,7 @@ function print_eins() {
 			printf -v "${FB[$1]}" "${NULL}"
 
 		eins_twei_drei_vier
-		_sleep 0.096
+		_sleep ${INTERVAL}
 		clear
 	done
 }
@@ -145,7 +146,7 @@ function print_twei() {
 			printf -v "${FB[$1]}" "${green_b}"
 
 		eins_twei_drei_vier
-		_sleep 0.096
+		_sleep ${INTERVAL}
 		clear
 	done
 }
@@ -181,11 +182,11 @@ function print_drei() {
 			printf -v "${FB[$1]}" "${white}"
 
 		test $j -eq 7 &&\
-			printf -v "${FA[$1]}" "${white}" &&\
-			printf -v "${FB[$1]}" "${gray}"
+			printf -v "${FA[$1]}" "${NULL}" &&\
+			printf -v "${FB[$1]}" "${NULL}"
 
 		eins_twei_drei_vier
-		_sleep 0.095
+		_sleep ${INTERVAL}
 		clear
 	done
 
@@ -226,7 +227,7 @@ function print_vier() {
 			printf -v "${FB[$1]}" "${white}"
 
 		eins_twei_drei_vier
-		_sleep 0.096
+		_sleep ${INTERVAL}
 		clear
 	done
 
