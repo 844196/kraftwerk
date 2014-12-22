@@ -91,10 +91,10 @@ function print_eins_twei_drei_vier() {
 		printf -v "${FB[$i]}" "${white}"
 		eins_twei_drei_vier
 
-		test $i -eq 0 && _sleep 0.5
+		test $i -eq 0 && _sleep 0.48
 		test $i -eq 1 && _sleep 0.172
-		test $i -eq 2 && _sleep 0.64
-		test $i -eq 3 && _sleep 0.32
+		test $i -eq 2 && _sleep 0.68
+		test $i -eq 3 && _sleep 0.48
 		
 		clear
 
